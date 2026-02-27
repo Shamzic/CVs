@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Simon Hamery – Candidature Les Vélopolitains (SCOP vélo)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
+
+  :root {
+    --green: #2D6A4F;
+    --lime: #74C69D;
+    --cream: #F8F4E8;
+    --dark: #1A1A1A;
+    --orange: #E07B39;
+    --spoke: #9E9E9E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 13px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 32px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 40px solid rgba(116,198,157,0.12);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    right: 40px; top: 10px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 25px solid rgba(116,198,157,0.07);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-name h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 3px;
+    line-height: 1;
+    color: var(--cream);
+  }
+
+  .header-name h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--lime);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* WHEEL SVG */
+  .wheel-icon {
+    width: 110px;
+    height: 110px;
+    opacity: 0.95;
+  }
+
+  .contact-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    font-size: 11px;
+    color: var(--spoke);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-item span {
+    color: var(--lime);
+    margin-right: 5px;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 0;
+    min-height: calc(297mm - 175px);
+  }
+
+  /* LEFT COLUMN */
+  .col-left {
+    padding: 28px 32px 28px 40px;
+    border-right: 2px dashed rgba(45,106,79,0.2);
+  }
+
+  /* RIGHT COLUMN */
+  .col-right {
+    padding: 28px 28px 28px 24px;
+    background: #F0ECD8;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--green);
+    border-bottom: 2px solid var(--lime);
+    padding-bottom: 4px;
+    margin-bottom: 14px;
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title:first-child { margin-top: 0; }
+
+  .section-title .icon {
+    font-size: 14px;
+  }
+
+  /* PROFIL */
+  .profil-block {
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    border-left: 4px solid var(--lime);
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(45,106,79,0.15);
+  }
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3px;
+  }
+
+  .exp-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--dark);
+  }
+
+  .exp-company {
+    font-size: 11.5px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  .exp-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--spoke);
+    white-space: nowrap;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+
+  .exp-desc {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 5px;
+  }
+
+  .exp-desc li {
+    list-style: none;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .exp-desc li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--lime);
+    font-size: 10px;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: var(--green);
+    color: var(--cream);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .highlight-box .hl-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--lime);
+    margin-bottom: 6px;
+  }
+
+  .highlight-box ul {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .highlight-box ul li::before {
+    content: '⚙ ';
+    font-size: 10px;
+    color: var(--lime);
+  }
+
+  /* SKILLS WHEEL - right column */
+  .wheel-skills-section {
+    text-align: center;
+  }
+
+  .wheel-skills-section .wheel-svg-big {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 0px;
+    display: block;
+  }
+
+  /* SKILLS LIST */
+  .skill-category {
+    margin-bottom: 14px;
+  }
+
+  .skill-cat-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    background: var(--green);
+    color: var(--cream);
+    font-size: 10px;
+    font-family: 'Space Mono', monospace;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 2px 2px 2px 0;
+  }
+
+  .skill-tag.orange {
+    background: var(--orange);
+  }
+
+  /* LANGUES */
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  .lang-bar {
+    height: 5px;
+    background: rgba(45,106,79,0.15);
+    border-radius: 3px;
+    width: 80px;
+    overflow: hidden;
+  }
+
+  .lang-fill {
+    height: 100%;
+    background: var(--lime);
+    border-radius: 3px;
+  }
+
+  /* FORMATION */
+  .form-item {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+  }
+
+  .form-item strong {
+    display: block;
+    font-size: 12px;
+    color: var(--dark);
+  }
+
+  .form-item span {
+    color: var(--spoke);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* CHAIN DIVIDER */
+  .chain-divider {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin: 8px 0;
+    opacity: 0.3;
+  }
+
+  .chain-link {
+    width: 14px;
+    height: 8px;
+    border: 1.5px solid var(--green);
+    border-radius: 4px;
+  }
+
+  /* TAG PERSO */
+  .tag-perso {
+    background: var(--orange);
+    color: white;
+    font-size: 9px;
+    font-family: 'Space Mono', monospace;
+    padding: 2px 6px;
+    border-radius: 2px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+
+  .right-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--green);
+    border-bottom: 1.5px solid var(--lime);
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+  }
+
+  .right-section-title:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="header-name">
+      <h1>Simon Hamery</h1>
+      <h2>Mécanique vélo · Location · Développement web</h2>
+    </div>
+    <!-- Wheel SVG -->
+    <svg class="wheel-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer rim -->
+      <circle cx="50" cy="50" r="46" stroke="#74C69D" stroke-width="5"/>
+      <!-- Tire texture -->
+      <circle cx="50" cy="50" r="46" stroke="#2D6A4F" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/>
+      <!-- Inner rim -->
+      <circle cx="50" cy="50" r="38" stroke="#74C69D" stroke-width="2" opacity="0.5"/>
+      <!-- Hub -->
+      <circle cx="50" cy="50" r="7" fill="#74C69D"/>
+      <circle cx="50" cy="50" r="4" fill="#1A1A1A"/>
+      <!-- Spokes -->
+      <line x1="50" y1="43" x2="50" y2="12" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="50" y1="57" x2="50" y2="88" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="43" y1="50" x2="12" y2="50" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="57" y1="50" x2="88" y2="50" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="44.9" y1="44.9" x2="22.7" y2="22.7" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="55.1" y1="55.1" x2="77.3" y2="77.3" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="55.1" y1="44.9" x2="77.3" y2="22.7" stroke="#9E9E9E" stroke-width="1.5"/>
+      <line x1="44.9" y1="55.1" x2="22.7" y2="77.3" stroke="#9E9E9E" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="contact-bar">
+    <div class="contact-item"><span>📍</span>23 rue de la Péniche, 34070 Montpellier</div>
+    <div class="contact-item"><span>📞</span>06 04 14 39 33</div>
+    <div class="contact-item"><span>✉</span><a href="mailto:shamery@free.fr" style="color: var(--spoke); text-decoration: none;">shamery@free.fr</a></div>
+    <div class="contact-item"><span>⚙</span>3 ans coursier vélo pro · esprit coopératif</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT -->
+  <div class="col-left">
+
+    <div class="section-title" style="margin-top:0"><span class="icon">🚲</span> Profil</div>
+    <div class="profil-block">
+      Cycliste du quotidien et de métier, j'ai travaillé 3 ans comme coursier à vélo à Montpellier et co-fondé l'association de livraison "Les coursiers montpellérains". Autodidacte, je réalise l'entretien courant, les réglages et les réparations de mes vélos depuis plusieurs années. Mon expérience en location de vans m'a apporté des réflexes solides en accueil client, préparation de véhicules et organisation opérationnelle. Je souhaite aujourd'hui m'investir dans une équipe de SCOP, utile au territoire, en apportant une vraie polyvalence atelier + terrain + service.
+    </div>
+
+    <!-- HIGHLIGHT COMPÉTENCES VÉLO -->
+    <div class="section-title" style="margin-top: 18px"><span class="icon">🔧</span> Compétences Vélo <span class="tag-perso">Autodidacte</span></div>
+    <div class="highlight-box">
+      <div class="hl-title">Mécanique & Réparation</div>
+      <ul>
+        <li>Montage complet de vélos (route, VTT, urbain)</li>
+        <li>Démontage, diagnostic et remise en état</li>
+        <li>Réglage dérailleur, freins</li>
+        <li>Changement câbles, chaîne, pneus, roulements</li>
+        <li>Révision complète et entretien préventif</li>
+        <li>Préparation des vélos de location et suivi de flotte</li>
+        <li>Conseil d'usage et sensibilisation sécurité auprès des usagers</li>
+      </ul>
+    </div>
+    <div class="highlight-box" style="background: #E07B39; margin-top: -4px;">
+      <div class="hl-title" style="color: #FFF3E0;">Aménagement & Location de Vans</div>
+      <ul>
+        <li>Aménagement intérieur de vans (menuiserie, électricité 12V)</li>
+        <li>Gestion de réservations et relation client</li>
+        <li>Maintenance et préparation de véhicules entre locations</li>
+        <li>Sensibilité à l'expérience usager et à la qualité de service</li>
+      </ul>
+    </div>
+
+    <!-- EXPÉRIENCES VÉLO -->
+    <div class="section-title"><span class="icon">🏅</span> Expériences Terrain</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Coursier à vélo</div>
+          <div class="exp-company">Auto-entreprise – Plateformes foodtech</div>
+        </div>
+        <div class="exp-date">2017 – 2020</div>
+      </div>
+      <ul class="exp-desc">
+        <li>3 ans de pratique intensive du vélo en milieu urbain (livraisons de repas) </li>
+        <li>Entretien régulier et réparation autonome de ses propres vélos de travail</li>
+        <li>Connaissance fine des axes cyclables et contraintes urbaines montpelliéraines</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Co-Fondateur</div>
+          <div class="exp-company">Les Coursiers Montpelliérains (association)</div>
+        </div>
+        <div class="exp-date">2019 – 2020</div>
+      </div>
+      <ul class="exp-desc">
+        <li>Co-fondation d'une association de livraisons à vélo</li>
+        <li>Conception du site web (site vitrine)</li>
+        <li>Développement de partenariats locaux et gestion logistique</li>
+        <li>Sensibilisation à l'économie sociale et solidaire du cyclisme urbain</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Moniteur VTT</div>
+          <div class="exp-company">Planète Aventure – Mulhouse</div>
+        </div>
+        <div class="exp-date">Été 2013</div>
+      </div>
+      <ul class="exp-desc">
+        <li>Encadrement de groupes de jeunes (12–17 ans) en VTT</li>
+        <li>Sécurité, pédagogie et transmission de la passion du vélo</li>
+      </ul>
+    </div>
+
+    <!-- COMPLÉMENTAIRE -->
+    <div class="section-title"><span class="icon">💻</span> Compétences supplémentaires — Formation initiale</div>
+    <div style="background: linear-gradient(135deg, #1A1A1A 0%, #2D3A2E 100%); border-radius: 8px; padding: 14px 16px; border-left: 4px solid var(--lime); margin-bottom: 4px;">
+      <div style="font-family:'Bebas Neue';font-size:14px;letter-spacing:2px;color:var(--lime);margin-bottom:8px;">Développement web & outils numérique</div>
+      <ul class="exp-desc" style="color: #ccc; margin-top: 0;">
+        <li style="color:#ccc">Issu d'une formation initiale en informatique (master à l'université de Montpellier), actuellement en quête d'un peu de plus de sens, j'aimerais pouvoir poursuivre dans ce domaine ponctuellement</li>
+        <li style="color:#ccc">À l'aise avec les suites et les outils numériques, le développement informatique, la compréhension et l'expression d'un besoin en solutions numériques professionelles.</li>
+        <li style="color:#ccc">Activité mixte recherchée : activité terrain, atelier, outils numériques, location et service client vélo</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-right">
+
+    <!-- ROUE DES COMPÉTENCES -->
+    <div class="wheel-skills-section">
+      <div style="font-family:'Bebas Neue';font-size:14px;letter-spacing:3px;color:var(--green);opacity:0.7;">ROUE DES COMPÉTENCES</div>
+      <!-- Viewbox élargi pour accueillir les labels extérieurs lisibles -->
+      <svg class="wheel-svg-big" viewBox="-20 -20 230 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="88" r="68" stroke="#2D6A4F" stroke-width="7"/>
+        <circle cx="80" cy="88" r="68" stroke="#74C69D" stroke-width="3" stroke-dasharray="8 6" opacity="0.5"/>
+        <circle cx="80" cy="88" r="56" stroke="#2D6A4F" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="80" cy="88" r="10" fill="#2D6A4F"/>
+        <circle cx="80" cy="88" r="6" fill="#74C69D"/>
+        <!-- Spokes -->
+        <line x1="80" y1="78" x2="80" y2="22" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="80" y1="98" x2="80" y2="154" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="70" y1="88" x2="14" y2="88" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="90" y1="88" x2="146" y2="88" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="72.1" y1="80.1" x2="32" y2="40" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="87.9" y1="95.9" x2="128" y2="136" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="87.9" y1="80.1" x2="128" y2="40" stroke="#9E9E9E" stroke-width="2"/>
+        <line x1="72.1" y1="95.9" x2="32" y2="136" stroke="#9E9E9E" stroke-width="2"/>
+        <!-- Labels outside the wheel — font-size 11-12, bien lisibles -->
+        <text x="80" y="0" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#2D6A4F" text-anchor="middle" font-weight="bold">POLYVALENCE</text>
+        <text x="80" y="175" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#2D6A4F" text-anchor="middle" font-weight="bold">TERRAIN</text>
+        <text x="-20" y="92" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#2D6A4F" text-anchor="start" font-weight="bold">WEB</text>
+        <text x="155" y="92" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#2D6A4F" text-anchor="start" font-weight="bold">CLIENT</text>
+        <text x="145" y="20" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#E07B39" text-anchor="middle" font-weight="bold">MÉCANIQUE</text>
+        <text x="150" y="158" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#E07B39" text-anchor="middle" font-weight="bold">LOGISTIQUE</text>
+        <text x="15" y="158" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#E07B39" text-anchor="middle" font-weight="bold">PÉDAGOGIE</text>
+        <text x="15" y="20" font-family="'Bebas Neue', sans-serif" font-size="14" fill="#E07B39" text-anchor="middle" font-weight="bold">NUMÉRIQUE</text>
+      </svg>
+    </div>
+
+    <!-- COMPÉTENCES VÉLO -->
+    <div class="right-section-title">🔩 Savoir-faire vélo</div>
+    <div class="skill-category">
+      <div class="skill-tag orange">Montage</div>
+      <div class="skill-tag orange">Démontage</div>
+      <div class="skill-tag orange">Diagnostic</div>
+      <div class="skill-tag orange">Freinage</div>
+      <div class="skill-tag orange">Transmission</div>
+      <div class="skill-tag orange">Réglages</div>
+      <div class="skill-tag orange">Entretien préventif</div>
+      <div class="skill-tag orange">Prépa location</div>
+      <div class="skill-tag orange">Accueil atelier</div>
+    </div>
+
+    <!-- COMPÉTENCES VANS -->
+    <div class="right-section-title">🚐 Vans aménagés</div>
+    <div class="skill-category">
+      <div class="skill-tag">Aménagement</div>
+      <div class="skill-tag">Électricité 12V</div>
+      <div class="skill-tag">Location</div>
+      <div class="skill-tag">Réservations</div>
+      <div class="skill-tag">Service client</div>
+    </div>
+
+    <!-- QUALITÉS -->
+    <div class="right-section-title">✨ Qualités</div>
+    <div class="skill-category">
+      <div class="skill-tag">Autodidacte</div>
+      <div class="skill-tag">Curieux</div>
+      <div class="skill-tag">Rigoureux</div>
+      <div class="skill-tag">Autonome</div>
+      <div class="skill-tag">Pédagogue</div>
+      <div class="skill-tag">Engagé</div>
+    </div>
+
+    <!-- LANGUES -->
+    <div class="right-section-title">🌍 Langues</div>
+    <div class="lang-item">
+      <span>Français</span>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    </div>
+    <div class="lang-item">
+      <span>Anglais</span>
+      <div class="lang-bar"><div class="lang-fill" style="width:75%"></div></div>
+    </div>
+    <div class="lang-item">
+      <span>Allemand</span>
+      <div class="lang-bar"><div class="lang-fill" style="width:25%"></div></div>
+    </div>
+
+    <!-- FORMATIONS -->
+    <div class="right-section-title">🎓 Formations</div>
+    <div class="form-item">
+      <strong>Master Informatique (IMAGINA)</strong>
+      <span>Université de Montpellier · 2019</span>
+    </div>
+    <div class="form-item">
+      <strong>Licence Informatique</strong>
+      <span>Université de Strasbourg · 2017</span>
+    </div>
+    <div class="form-item">
+      <strong>Baccalauréat Scientifique</strong>
+      <span>Mention bien</span>
+    </div>
+
+    <!-- VALEURS -->
+    <div class="right-section-title">🌿 Valeurs partagées</div>
+    <div style="font-size:11.5px;line-height:1.65;color:#444;">
+      Mobilité douce, économie locale, écologie — des convictions que je porte au quotidien à vélo à Montpellier depuis plus de 8 ans.
+    </div>
+
+    <div style="margin-top: 20px; text-align:center; opacity:0.25;">
+      <div class="chain-divider" style="justify-content:center">
+        <div class="chain-link"></div><div class="chain-link"></div><div class="chain-link"></div>
+        <div class="chain-link"></div><div class="chain-link"></div><div class="chain-link"></div>
+        <div class="chain-link"></div><div class="chain-link"></div><div class="chain-link"></div>
+      </div>
+    </div>
+
+    <div style="margin-top:8px;font-size:10px;color:#777;text-align:center;font-family:'Space Mono',monospace;">
+      Disponible pour échanger · mobilité quotidienne à vélo · permis B
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
