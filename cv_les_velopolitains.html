@@ -372,9 +372,37 @@
   }
 
   .right-section-title:first-child { margin-top: 0; }
+
+  .pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: var(--lime);
+    color: #0f2a1f;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .pdf-download-btn:hover {
+    filter: brightness(0.95);
+  }
+
+  @media print {
+    .pdf-download-btn {
+      display: none;
+    }
+  }
 </style>
 </head>
 <body>
+
+<button class="pdf-download-btn" onclick="window.print()" type="button">Telecharger en PDF</button>
 
 <!-- HEADER -->
 <header>

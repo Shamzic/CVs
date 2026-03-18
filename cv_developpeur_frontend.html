@@ -369,9 +369,37 @@
   a:hover {
     text-decoration: underline;
   }
+
+  .pdf-download-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    background: var(--cyan);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .pdf-download-btn:hover {
+    filter: brightness(0.95);
+  }
+
+  @media print {
+    .pdf-download-btn {
+      display: none;
+    }
+  }
 </style>
 </head>
 <body>
+
+<button class="pdf-download-btn" onclick="window.print()" type="button">arger au format PDF en cliquant ici.</button>
 
 <!-- HEADER -->
 <header>
@@ -419,6 +447,7 @@
     <div class="profil-block">
       <strong>Développeur frontend avec expérience beta.gouv.fr</strong>, issu d'une formation informatique (Master IMAGINA).<br><br>
       Je conçois des interfaces web <strong>accessibles, robustes et maintenables</strong> avec Vue.js, TypeScript et l'écosystème GitHub.<br><br>
+      Contribution à un service public numérique à fort trafic, avec un simulateur atteignant <strong>300 000 visites et 100 000 simulations mensuelles</strong>.<br><br>
       Habitué à travailler avec une <strong>équipe produit en itérations</strong> (design, produit, métier) pour livrer des services numériques publics utiles.<br><br>
       Sensible aux enjeux d'<strong>accessibilité (RGAA)</strong>, de réutilisation de briques communes et de qualité front-end sur le long terme.
     </div>
@@ -442,6 +471,7 @@
         <li>npm / pnpm / yarn</li>
         <li>Vite, Webpack et outillage front moderne</li>
         <li>DevTools & debugging</li>
+        <li>Gestion d'erreurs et monitoring avec Sentry</li>
         <li>Testing (Jest, Cypress)</li>
         <li>CI/CD (GitHub Actions) et pratiques devops</li>
       </ul>
@@ -459,7 +489,8 @@
         <div class="exp-date">Sept 2022 – Présent</div>
       </div>
       <ul class="exp-desc">
-        <li>Développement fullstack du simulateur d'aides sociales 1jeune1solution (Vue.js v3, Node.js, Express.js, MongoDB, Jest, Cypress, GitHub Actions, Ansible)</li>
+        <li>Développement fullstack du simulateur d'aides sociales 1jeune1solution (Vue.js v3, TypeScript, DSFR, Node.js, Express.js, MongoDB, Jest, Cypress, GitHub Actions, Ansible)</li>
+        <li>Implémentation et utilisation du DSFR pour garantir cohérence UI, accessibilité et standards du service public</li>
         <li>Travail au sein de l'écosystème beta.gouv.fr sur un produit public à fort impact social</li>
         <li>Collaboration étroite avec designers, product managers et agents publics en cycles itératifs</li>
         <li>Amélioration continue de l'accessibilité, de la performance et de la maintenabilité des interfaces</li>
@@ -563,28 +594,26 @@
     <div class="right-section-title">💡 Frontend Stack</div>
     <div class="skill-category">
       <div class="skill-cat-title">Core</div>
-      <div class="skill-tag">HTML</div>
-      <div class="skill-tag">CSS</div>
       <div class="skill-tag">JavaScript</div>
       <div class="skill-tag">TypeScript</div>
+      <div class="skill-tag">CSS</div>
       <div class="skill-tag">RGAA</div>
       <div class="skill-tag">Responsive</div>
     </div>
     <div class="skill-category">
       <div class="skill-cat-title">Frameworks</div>
       <div class="skill-tag accent">Vue.js</div>
-      <div class="skill-tag accent">Vue Router</div>
-      <div class="skill-tag accent">Pinia</div>
+      <div class="skill-tag accent">Nuxt.js</div>
       <div class="skill-tag accent">Express.js</div>
-      <div class="skill-tag accent">Storybook</div>
-      <div class="skill-tag accent">Design System</div>
+      <div class="skill-tag accent">TailwindCSS</div>
+      <div class="skill-tag accent">DSFR</div>
     </div>
     <div class="skill-category">
       <div class="skill-cat-title">Tooling</div>
       <div class="skill-tag orange">Git</div>
-      <div class="skill-tag orange">GitHub</div>
-      <div class="skill-tag orange">npm</div>
       <div class="skill-tag orange">Vite</div>
+      <div class="skill-tag orange">npm</div>
+      <div class="skill-tag orange">Sentry</div>
       <div class="skill-tag orange">Cypress</div>
       <div class="skill-tag orange">Jest</div>
     </div>
@@ -592,11 +621,10 @@
     <!-- COMPÉTENCES TRANSVERSALES -->
     <div class="right-section-title">✨ Qualités</div>
     <div class="skill-category">
-      <div class="skill-tag">Curieux</div>
       <div class="skill-tag">Autonome</div>
       <div class="skill-tag">Rigoureux</div>
       <div class="skill-tag">Écoute</div>
-      <div class="skill-tag">Itératif</div>
+      <div class="skill-tag">Curieux</div>
       <div class="skill-tag">Collaboratif</div>
       <div class="skill-tag">Engagé</div>
     </div>
