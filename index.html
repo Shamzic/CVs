@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simon Hamery – CVs</title>
+<title>Simon Hamery – Développeur freelance, Mécanicien vélo & Aménageur de vans</title>
+<meta name="description" content="Simon Hamery — développeur web freelance à Montpellier, en reconversion vers la mécanique cycle, et aménageur/loueur de vans aménagés.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700;800&family=Space+Mono&display=swap');
 
   :root {
     --dark: #1A1A1A;
@@ -14,77 +15,259 @@
     --green: #2D6A4F;
     --lime: #74C69D;
     --cyan: #3498DB;
+    --orange: #E07B39;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--cream);
     font-family: 'DM Sans', sans-serif;
     color: var(--dark);
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
+  /* ===== HERO ===== */
   header {
     background: var(--dark);
     color: var(--cream);
-    padding: 56px 40px 48px;
+    padding: 72px 40px 120px;
     position: relative;
     overflow: hidden;
-    text-align: center;
   }
 
   header::before {
     content: '';
     position: absolute;
-    left: -60px; top: -80px;
-    width: 280px; height: 280px;
+    left: -80px; top: -100px;
+    width: 320px; height: 320px;
     border-radius: 50%;
-    border: 40px solid rgba(116,198,157,0.10);
+    border: 44px solid rgba(116,198,157,0.10);
   }
 
   header::after {
     content: '';
     position: absolute;
-    right: -60px; bottom: -90px;
-    width: 280px; height: 280px;
+    right: -90px; bottom: -120px;
+    width: 360px; height: 360px;
     border-radius: 50%;
-    border: 40px solid rgba(52,152,219,0.10);
+    border: 44px solid rgba(52,152,219,0.10);
   }
 
-  header h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    letter-spacing: 4px;
-    position: relative;
-    z-index: 1;
-  }
-
-  header p {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--lime);
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
-  }
-
-  main {
-    max-width: 900px;
-    margin: -36px auto 0;
-    padding: 0 32px 64px;
+  .hero {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
     position: relative;
     z-index: 2;
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+  .hero-text .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lime);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
   }
 
+  .hero-text .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--lime);
+  }
+
+  .hero-text h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .hero-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    color: var(--spoke);
+    margin-top: 10px;
+  }
+
+  .hero-text h2 .sep { color: var(--lime); margin: 0 8px; }
+
+  .hero-text p.bio {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #D8D3C4;
+    margin-top: 22px;
+    max-width: 480px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 999px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--lime);
+    color: var(--dark);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(248,244,232,0.35);
+    color: var(--cream);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  }
+
+  /* Portrait frame */
+  .hero-photo {
+    position: relative;
+    justify-self: center;
+  }
+
+  .hero-photo .frame {
+    width: 280px;
+    height: 340px;
+    border-radius: 18px;
+    background: linear-gradient(160deg, var(--green), var(--cyan));
+    padding: 6px;
+    transform: rotate(-3deg);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  }
+
+  .hero-photo .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    background: #2a2a2a;
+  }
+
+  .hero-photo .badge {
+    position: absolute;
+    bottom: -16px;
+    left: -28px;
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    transform: rotate(3deg);
+  }
+
+  .hero-photo .badge span { color: var(--green); }
+
+  /* ===== MAIN ===== */
+  main {
+    max-width: 1040px;
+    margin: -64px auto 0;
+    padding: 0 32px 64px;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* ===== PHOTO CARDS (shared) ===== */
+  .photo-card {
+    margin: 0;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 10px 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .photo-card:hover {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.14);
+  }
+
+  .photo-card img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+    background: linear-gradient(135deg, #e8e3d4, #d8d2bf);
+  }
+
+  .photo-card figcaption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    color: var(--spoke);
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ===== PROFILE BLOCKS ===== */
+  .profile-block {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+
+  .profile-block.flip { grid-template-columns: 0.85fr 1.15fr; }
+
+  .profile-photos {
+    display: grid;
+    gap: 14px;
+  }
+
+  .photos-velo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photos-velo .ph-main { grid-column: 1 / 3; transform: rotate(-1deg); }
+  .photos-velo .ph-main img { height: 240px; }
+  .photos-velo .ph-sub:nth-child(2) { transform: rotate(1.4deg); }
+  .photos-velo .ph-sub:nth-child(3) { transform: rotate(-1.6deg); }
+  .photos-velo .ph-sub img { height: 140px; }
+
+  .photos-dev { transform: rotate(-0.8deg); }
+  .photos-dev img { height: 320px; }
+
+  .photos-van { grid-template-columns: 1fr 1fr; }
+  .photos-van figure:nth-child(1) { transform: rotate(-1.2deg); }
+  .photos-van figure:nth-child(2) { transform: rotate(1.4deg); }
+  .photos-van img { height: 220px; }
+
+  /* ===== CARDS ===== */
   .card {
     background: #fff;
     border-radius: 14px;
@@ -142,48 +325,185 @@
     background: var(--accent, var(--green));
   }
 
-  .card.frontend { --accent: var(--cyan); }
+  .yescapa-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
 
+  .yescapa-links a {
+    align-self: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    color: var(--accent, var(--green));
+    background: none;
+    border: 1px solid var(--accent, var(--green));
+    padding: 7px 12px;
+    border-radius: 999px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .yescapa-links a:hover {
+    background: var(--accent, var(--green));
+    color: #fff;
+  }
+
+  .card.frontend { --accent: var(--cyan); }
+  .card.van { --accent: var(--orange); }
+
+  /* ===== FOOTER ===== */
   footer {
     text-align: center;
-    margin-top: 48px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  footer .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 11.5px;
     color: var(--spoke);
   }
 
-  footer a {
+  footer .contact-row a {
     color: var(--green);
     text-decoration: none;
+  }
+
+  footer .contact-row a:hover { color: var(--cyan); }
+
+  footer .signoff {
+    margin-top: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--spoke);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-text p.bio { margin: 22px auto 0; }
+    .hero-cta { justify-content: center; }
+    .hero-photo { margin-top: 10px; }
+    .hero-photo .badge { left: 50%; transform: translateX(-50%) rotate(3deg); }
+    .profile-block { grid-template-columns: 1fr; }
+    .profile-block.flip .profile-photos { order: -1; }
+    .photo-card { transform: none !important; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Simon Hamery</h1>
-  <p>Mécanique vélo · Service client · Développement web</p>
+  <div class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">Montpellier · Disponible</div>
+      <h1>Simon Hamery</h1>
+      <h2>Développeur freelance<span class="sep">×</span>Mécanicien vélo<span class="sep">×</span>Aménageur de vans</h2>
+      <p class="bio">
+        Développeur web de formation, coursier à vélo et aménageur de vans.
+        Aujourd'hui je fais trois activités à fond&nbsp;: je continue mes missions freelance en développement,
+        je me forme sérieusement à la mécanique cycle pour en faire mon métier d'atelier,
+        et j'aménage des vans que je conçois et loue pour celles et ceux qui veulent partir à l'aventure.
+        Trois mondes, une même exigence&nbsp;: comprendre comment les choses fonctionnent, et les construire bien.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#profils">Voir mes profils ↓</a>
+        <a class="btn btn-outline" href="mailto:shamery@free.fr">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="assets/photos/portrait/portrait.jpg" alt="Portrait de Simon Hamery" onerror="this.closest('.hero-photo').classList.add('no-photo')">
+      </div>
+      <div class="badge">📍 Montpellier <span>· dispo immédiatement</span></div>
+    </div>
+  </div>
 </header>
 
 <main>
-  <div class="cards">
-    <div class="card">
-      <div class="tag">🚲 Alternance</div>
-      <h2>Mécanicien Cycle</h2>
-      <p>Mécanicien vélo autodidacte, 3 ans d'expérience terrain comme coursier à vélo. À la recherche d'une alternance (CQP / BTM Cycles) pour se former en atelier.</p>
-      <a href="cv_mecanicien_cycle_alternance.html">Voir le CV →</a>
-    </div>
-    <div class="card frontend">
-      <div class="tag">💻 Développement</div>
-      <h2>Développeur Frontend</h2>
-      <p>Master en informatique, spécialisé Vue.js / TypeScript. Profil technique pour des missions de développement web frontend.</p>
-      <a href="cv_developpeur_frontend.html">Voir le CV →</a>
-    </div>
-  </div>
+
+  <section id="profils">
+    <article class="profile-block">
+      <div class="profile-photos photos-dev">
+        <figure class="photo-card">
+          <img src="assets/photos/dev/dev-setup.jpg" alt="Setup de développement de Simon, avec plusieurs écrans">
+          <figcaption>Setup freelance</figcaption>
+        </figure>
+      </div>
+      <div class="card frontend">
+        <div class="tag">💻 Développement</div>
+        <h2>Développeur Frontend</h2>
+        <p>Master en informatique, spécialisé Vue.js / TypeScript. Profil technique pour des missions de développement web frontend.</p>
+        <a href="cv_developpeur_frontend.html">Voir le CV →</a>
+      </div>
+    </article>
+
+    <article class="profile-block flip">
+      <div class="card">
+        <div class="tag">🚲 Alternance</div>
+        <h2>Mécanicien Cycle</h2>
+        <p>Mécanicien vélo autodidacte, 3 ans d'expérience terrain comme coursier à vélo. À la recherche d'une alternance (CQP / BTM Cycles) pour se former en atelier.</p>
+        <a href="cv_mecanicien_cycle_alternance.html">Voir le CV →</a>
+      </div>
+      <div class="profile-photos photos-velo">
+        <figure class="photo-card ph-main">
+          <img src="assets/photos/v%C3%A9lo/velo-voyage.jpg" alt="Vélo de voyage chargé, en pleine montagne">
+          <figcaption>Bikepacking</figcaption>
+        </figure>
+        <figure class="photo-card ph-sub">
+          <img src="assets/photos/v%C3%A9lo/entretien-velo.jpg" alt="Simon en train de réviser un vélo sur pied d'atelier">
+          <figcaption>Mécanique vélo</figcaption>
+        </figure>
+        <figure class="photo-card ph-sub">
+          <img src="assets/photos/v%C3%A9lo/coursier.jpg" alt="Simon en livraison à vélo pour Les Coursiers MTP">
+          <figcaption>Coursier à vélo</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="profile-block">
+      <div class="profile-photos photos-van">
+        <figure class="photo-card">
+          <img src="assets/photos/am%C3%A9nagement%20van/van-salon.jpg" alt="Aménagement intérieur d'un van, espace salon">
+          <figcaption>Espace salon</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/photos/am%C3%A9nagement%20van/van-couchage.jpg" alt="Aménagement intérieur d'un van, espace couchage">
+          <figcaption>Espace couchage</figcaption>
+        </figure>
+      </div>
+      <div class="card van">
+        <div class="tag">🚐 Aménagement & location</div>
+        <h2>Vans Aménagés</h2>
+        <p>Conception et aménagement de vans sur-mesure (salon, couchage, rangements), proposés ensuite à la location pour celles et ceux qui veulent partir à l'aventure.</p>
+        <div class="yescapa-links">
+          <a href="https://www.yescapa.fr/d/campers/89818" target="_blank" rel="noopener">Van n°1 sur Yescapa ↗</a>
+          <a href="https://www.yescapa.fr/d/campers/95566" target="_blank" rel="noopener">Van n°2 sur Yescapa ↗</a>
+        </div>
+        <a href="mailto:shamery@free.fr?subject=Location%20de%20van%20am%C3%A9nag%C3%A9">Me contacter →</a>
+      </div>
+    </article>
+  </section>
 
   <footer>
-    <a href="mailto:shamery@free.fr">shamery@free.fr</a> · 06 04 14 39 33 · Montpellier
+    <div class="contact-row">
+      <a href="mailto:shamery@free.fr">shamery@free.fr</a>
+      <span>06 04 14 39 33</span>
+      <span>Montpellier</span>
+      <a href="https://github.com/shamzic" target="_blank" rel="noopener">github.com/shamzic</a>
+    </div>
+    <div class="signoff">fait avec du café et un peu de cambouis</div>
   </footer>
+
 </main>
 
 </body>
