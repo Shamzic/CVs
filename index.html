@@ -1,13 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CVs - Simon Hamery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simon Hamery – CVs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono&display=swap');
+
+  :root {
+    --dark: #1A1A1A;
+    --cream: #F8F4E8;
+    --spoke: #9E9E9E;
+    --green: #2D6A4F;
+    --lime: #74C69D;
+    --cyan: #3498DB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 56px 40px 48px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    left: -60px; top: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 40px solid rgba(116,198,157,0.10);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    right: -60px; bottom: -90px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 40px solid rgba(52,152,219,0.10);
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  header p {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  main {
+    max-width: 900px;
+    margin: -36px auto 0;
+    padding: 0 32px 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--accent, var(--green));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+  }
+
+  .card .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent, var(--green));
+    margin-bottom: 10px;
+  }
+
+  .card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 18px;
+  }
+
+  .card a {
+    align-self: flex-start;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--cream);
+    background: var(--dark);
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background 0.15s ease;
+  }
+
+  .card a:hover {
+    background: var(--accent, var(--green));
+  }
+
+  .card.frontend { --accent: var(--cyan); }
+
+  footer {
+    text-align: center;
+    margin-top: 48px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--spoke);
+  }
+
+  footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+</style>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 24px;">
-  <h1>CVs</h1>
-  <ul><li><a href="cv_mecanicien_cycle_alternance.html">CV Mécanicien Cycle (Alternance)</a></li></ul>
-  <ul><li><a href="cv_developpeur_frontend.html">CV Développeur Frontend</a></li></ul>
+<body>
+
+<header>
+  <h1>Simon Hamery</h1>
+  <p>Mécanique vélo · Service client · Développement web</p>
+</header>
+
+<main>
+  <div class="cards">
+    <div class="card">
+      <div class="tag">🚲 Alternance</div>
+      <h2>Mécanicien Cycle</h2>
+      <p>Mécanicien vélo autodidacte, 3 ans d'expérience terrain comme coursier à vélo. À la recherche d'une alternance (CQP / BTM Cycles) pour se former en atelier.</p>
+      <a href="cv_mecanicien_cycle_alternance.html">Voir le CV →</a>
+    </div>
+    <div class="card frontend">
+      <div class="tag">💻 Développement</div>
+      <h2>Développeur Frontend</h2>
+      <p>Master en informatique, spécialisé Vue.js / TypeScript. Profil technique pour des missions de développement web frontend.</p>
+      <a href="cv_developpeur_frontend.html">Voir le CV →</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="mailto:shamery@free.fr">shamery@free.fr</a> · 06 04 14 39 33 · Montpellier
+  </footer>
+</main>
+
 </body>
 </html>
