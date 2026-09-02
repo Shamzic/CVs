@@ -395,17 +395,20 @@
     .hero-photo { margin-top: 10px; }
     .hero-photo .badge { left: 50%; transform: translateX(-50%) rotate(3deg); }
     .profile-block { grid-template-columns: 1fr; }
-    .profile-block.flip .profile-photos { order: -1; }
+    .profile-block .card { order: -1; }
     .photo-card { transform: none !important; }
 
     .photos-velo {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .photos-velo .ph-main { grid-column: 1 / 2; }
+    .photos-velo .ph-main {
+      grid-column: 1 / 3;
+      order: 1;
+    }
     .photos-velo .ph-main img { height: 220px; }
-    .photos-velo .ph-sub img { height: 200px; }
+    .photos-velo .ph-sub img { height: 170px; }
   }
 </style>
 </head>
