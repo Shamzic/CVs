@@ -398,6 +398,87 @@
     .profile-block.flip .profile-photos { order: -1; }
     .photo-card { transform: none !important; }
   }
+
+  /* ===== LIGHTBOX ===== */
+  .hero-photo .frame img,
+  .photo-card img {
+    cursor: zoom-in;
+  }
+
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 24px 24px;
+  }
+
+  .lightbox-overlay.active { display: flex; }
+
+  .lightbox-content {
+    max-width: 90vw;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lightbox-content img {
+    max-width: 90vw;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    display: block;
+  }
+
+  .lightbox-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--cream);
+    text-align: center;
+    margin-top: 16px;
+    max-width: 90vw;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--dark);
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    transition: transform 0.15s ease, background 0.15s ease;
+    z-index: 1001;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-close:focus-visible {
+    transform: scale(1.08);
+    background: var(--lime);
+    outline: none;
+  }
+
+  @media (max-width: 600px) {
+    .lightbox-overlay { padding: 60px 16px 16px; }
+    .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 20px; }
+    .lightbox-content img { max-height: 70vh; }
+  }
 </style>
 </head>
 <body>
@@ -505,6 +586,59 @@
   </footer>
 
 </main>
+
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu de l'image" aria-hidden="true">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer l'aperçu">✕</button>
+  <div class="lightbox-content">
+    <img id="lightboxImage" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImage = document.getElementById('lightboxImage');
+    var lightboxCaption = document.getElementById('lightboxCaption');
+    var lightboxClose = document.getElementById('lightboxClose');
+    var lastFocused = null;
+
+    function openLightbox(img) {
+      lastFocused = document.activeElement;
+      lightboxImage.src = img.currentSrc || img.src;
+      lightboxImage.alt = img.alt || '';
+      var figure = img.closest('figure');
+      var caption = figure ? figure.querySelector('figcaption') : null;
+      lightboxCaption.textContent = caption ? caption.textContent : '';
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImage.src = '';
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    document.querySelectorAll('.hero-photo .frame img, .photo-card img').forEach(function (img) {
+      img.addEventListener('click', function () { openLightbox(img); });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  })();
+</script>
 
 </body>
 </html>
